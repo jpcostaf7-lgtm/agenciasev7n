@@ -1,0 +1,15 @@
+# Sev7n Xpress — Agência Sev7n
+# O que o painel grava no servidor nunca vai para o GitHub:
+# conteúdo editado, leads, análises de SEO, chaves de API, sessões e imagens enviadas.
+data/*
+!data/.htaccess
+!data/index.html
+uploads/*
+!uploads/.htaccess
+!uploads/index.html
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log
+*.tmp

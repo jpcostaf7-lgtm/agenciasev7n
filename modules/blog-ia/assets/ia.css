@@ -1,0 +1,19 @@
+/* Sev7n Xpress — Artigos com IA | Autor: João Costa */
+.ia-sug { list-style: none; margin: .5rem 0 0; padding: .6rem .8rem; border: 1px solid var(--line); border-radius: 8px; background: #f8faf9; display: grid; gap: .35rem; }
+.ia-sug .linklike { text-align: left; }
+.ia-res { display: flex; gap: 1rem; align-items: flex-start; }
+.ia-res img { width: 180px; aspect-ratio: 16/10; object-fit: cover; border-radius: 8px; }
+.ia-res__t { font-weight: 700; font-size: 1.1rem; margin: 0 0 .25rem; }
+.ia-bulklist { display: grid; gap: .4rem; padding-left: 1.2rem; }
+.ia-cols { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 1.25rem; align-items: start; }
+.ia-catgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: .4rem .8rem; margin: .4rem 0; }
+.ia-slots { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: .4rem; }
+.ia-slots li { display: flex; gap: .6rem; align-items: center; }
+.ia-st--ok { background: #dff3e6 !important; color: #1d6b3c !important; }
+.ia-st--erro { background: #fde8e6 !important; color: #9b2c22 !important; }
+.ia-st--rodando, .ia-st--aviso { background: #fff3d6 !important; color: #7a5300 !important; }
+.ia-hist { padding-left: 1.1rem; display: grid; gap: .35rem; }
+.ia-code { background: #17221d; color: #d8f0e2; padding: .6rem .8rem; border-radius: 8px; font-size: .8rem; overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
+.ok { color: var(--ok); }
+.bad { color: var(--danger); }
+@media (max-width: 1100px) { .ia-cols { grid-template-columns: minmax(0, 1fr); } .ia-res { flex-direction: column; } }

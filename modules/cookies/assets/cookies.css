@@ -1,0 +1,19 @@
+/* Sev7n Xpress — módulo Cookies LGPD | Autor: João Costa
+   O tema pode ajustar: --cookie-accent, --cookie-ink, --cookie-bg, --cookie-offset, --cookie-font */
+.s7x-cookie { position: fixed; z-index: 60; background: var(--cookie-bg, #fff); color: var(--cookie-ink, #1d2421); font-family: var(--cookie-font, inherit); font-size: .95rem; line-height: 1.5; box-shadow: 0 16px 48px -12px rgba(0,0,0,.35); }
+.s7x-cookie[hidden] { display: none; }
+.s7x-cookie--cartao { left: 20px; bottom: var(--cookie-offset, 20px); width: min(400px, calc(100vw - 40px)); border-radius: 16px; padding: 1.25rem 1.25rem 1.1rem; }
+.s7x-cookie--barra { left: 0; right: 0; bottom: var(--cookie-offset, 0px); padding: 1rem max(1rem, calc((100vw - 1180px) / 2)); display: flex; align-items: center; gap: 1.5rem; border-radius: 0; }
+.s7x-cookie__text { margin: 0 0 1rem; }
+.s7x-cookie--barra .s7x-cookie__text { margin: 0; flex: 1; }
+.s7x-cookie__text a { color: inherit; font-weight: 600; }
+.s7x-cookie__actions { display: flex; gap: .5rem; flex: none; }
+.s7x-cookie--cartao .s7x-cookie__actions > * { flex: 1; }
+.s7x-cookie__btn { font: inherit; font-weight: 600; cursor: pointer; border-radius: 999px; padding: .7rem 1.2rem; border: 1.5px solid var(--cookie-accent, #1e5631); background: var(--cookie-accent, #1e5631); color: var(--cookie-accent-ink, #fff); }
+.s7x-cookie__btn--ghost { background: transparent; color: var(--cookie-accent, #1e5631); }
+.s7x-cookie__btn:focus-visible { outline: 3px solid var(--cookie-focus, #e0ae12); outline-offset: 2px; }
+@media (max-width: 640px) {
+  .s7x-cookie--cartao { left: 12px; right: 12px; width: auto; }
+  .s7x-cookie--barra { flex-direction: column; align-items: stretch; gap: .75rem; }
+  .s7x-cookie--barra .s7x-cookie__actions > * { flex: 1; }
+}

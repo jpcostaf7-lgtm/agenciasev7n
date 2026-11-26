@@ -1,0 +1,34 @@
+/* Sev7n Xpress — módulo Claude | Autor: João Costa */
+.chat { display: flex; flex-direction: column; height: calc(100vh - 190px); min-height: 480px; padding: 0; overflow: hidden; }
+.chat__log { flex: 1; overflow-y: auto; padding: 1.5rem; display: flex; flex-direction: column; gap: .75rem; background: #fafbfa; }
+.chat__empty { max-width: 640px; margin: auto; text-align: center; color: var(--ink-2); }
+.chat__suggest { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin-top: 1rem; }
+.chat__suggest .btn { white-space: normal; text-align: left; }
+.msg { max-width: 78%; padding: .75rem 1rem; border-radius: 14px; line-height: 1.55; font-size: .95rem; }
+.msg p { margin: 0 0 .5rem; }
+.msg p:last-child { margin-bottom: 0; }
+.msg ul { margin: .25rem 0 .5rem; padding-left: 1.2rem; }
+.msg code { background: rgba(0,0,0,.06); }
+.msg--user { align-self: flex-end; background: var(--accent); color: #fff; border-bottom-right-radius: 4px; }
+.msg--assistant { align-self: flex-start; background: #fff; border: 1px solid var(--line); border-bottom-left-radius: 4px; }
+.msg--actions { align-self: flex-start; display: flex; flex-wrap: wrap; gap: .35rem; padding: 0; max-width: 90%; }
+.msg--error { align-self: flex-start; background: #fdecea; color: #7f1d1d; border: 1px solid #f3c2bd; }
+.msg__undo { margin-top: .75rem; padding-top: .6rem; border-top: 1px solid var(--line); display: flex; gap: .5rem; }
+.chip { font-size: .78rem; background: #eef1ef; color: var(--ink-2); border-radius: 99px; padding: .25rem .65rem; }
+.chip--write { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.chip--error { background: #fdecea; color: var(--danger); }
+.typing { align-self: flex-start; color: var(--muted); font-size: .88rem; display: flex; align-items: center; gap: .3rem; }
+.typing span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: s7xdot 1.2s infinite; }
+.typing span:nth-child(2) { animation-delay: .2s; }
+.typing span:nth-child(3) { animation-delay: .4s; }
+@keyframes s7xdot { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .typing span { animation: none; } }
+.chat__form { display: flex; gap: .75rem; padding: 1rem 1.25rem; border-top: 1px solid var(--line); background: #fff; }
+.chat__form textarea { flex: 1; resize: none; min-height: 48px; max-height: 160px; }
+.chat__foot { display: flex; justify-content: space-between; align-items: center; padding: .5rem 1.25rem .9rem; background: #fff; }
+.copybox { display: flex; align-items: center; gap: .75rem; background: #f4f6f5; border: 1px solid var(--line); border-radius: 8px; padding: .6rem .75rem; margin: .75rem 0; }
+.copybox code { flex: 1; background: none; word-break: break-all; font-size: .85rem; }
+.steps-list { margin: 0 0 .5rem; padding-left: 1.25rem; line-height: 1.7; }
+.auth__card--wide { width: min(520px, 100%); }
+.consent { margin: .75rem 0; padding-left: 1.2rem; line-height: 1.6; }
+@media (max-width: 900px) { .msg { max-width: 92%; } .chat { height: calc(100vh - 150px); } }
