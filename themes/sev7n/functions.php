@@ -186,3 +186,64 @@ cms_add_action('request', function () {
         }
     }
 }, 0);
+
+
+/* -------------------------------------------------------------------------
+ * Portfólio: projetos novos (aparecem primeiro)
+ * ---------------------------------------------------------------------- */
+
+/** Projetos mais recentes, com os prints dos layouts novos. */
+function sv_portfolio_novos(): array
+{
+    $port = 'themes/' . basename(__DIR__) . '/assets/fotos/portfolio/';
+    return [
+        ['name' => 'Assertiva Contábil', 'category' => 'Site institucional', 'url' => 'https://assertivacontabil.com.br', 'image' => ['src' => $port . 'assertiva.webp', 'alt' => 'Site da Assertiva Contábil'], 'text' => 'Contabilidade consultiva no Rio com visual premium, uma página para cada serviço, troca de contador e reforma tributária.', 'tags' => 'Contabilidade, Sev7n Xpress'],
+        ['name' => 'CTVM Training Club', 'category' => 'Site institucional', 'url' => 'https://ctvmtrainingclub.com.br', 'image' => ['src' => $port . 'ctvm.webp', 'alt' => 'Site do CTVM Training Club'], 'text' => 'Box de treino na Vila Madalena (SP) com vídeo no topo, uma página por modalidade, horários e aula experimental pelo WhatsApp.', 'tags' => 'Fitness, Sev7n Xpress'],
+        ['name' => 'Shelter Consultoria', 'category' => 'Site + blog com IA', 'url' => 'https://shelterconsultoria.com.br', 'image' => ['src' => $port . 'shelter-consultoria.webp', 'alt' => 'Site da Shelter Consultoria'], 'text' => 'Consultoria marítima e offshore com mais de 700 notícias importadas e artigos novos escritos com IA toda semana.', 'tags' => 'Marítimo, Blog com IA'],
+        ['name' => 'Ambiental Cupim', 'category' => 'Site com SEO local', 'url' => 'https://ambiental-cupim.com.br', 'image' => ['src' => $port . 'ambiental.webp', 'alt' => 'Site da Ambiental Cupim'], 'text' => 'Dedetização no Rio, Niterói e São Gonçalo, com serviços, segmentos atendidos e orçamento direto no WhatsApp.', 'tags' => 'Serviços, SEO local'],
+    ];
+}
+
+/**
+ * Atualização única do conteúdo salvo no servidor: quando as páginas já foram salvas pelo
+ * painel, o portfólio salvo não recebe os projetos novos do tema. Na primeira visita depois
+ * da publicação, os que faltam entram no começo da lista (pelo nome; nada é apagado).
+ * Guarda uma revisão antes e só roda uma vez (data/tema-atualizacoes.json).
+ */
+cms_add_action('request', function () {
+    $mark = CMS_DATA . '/tema-atualizacoes.json';
+    $done = cms_read_json($mark, []);
+    $key = 'portfolio-2026-11-26';
+    if (!empty($done[$key])) {
+        return;
+    }
+    $file = CMS_DATA . '/content.json';
+    $saved = is_file($file) ? cms_read_json($file, []) : [];
+    if (is_array($saved['pages'] ?? null)) {
+        $novos = sv_portfolio_novos();
+        $porPagina = ['criacao-sites-rj' => ['Assertiva Contábil', 'Ambiental Cupim']];
+        $c = cms_content();
+        $mudou = false;
+        foreach ($c['pages'] as $pid => $pg) {
+            foreach ((array) ($pg['blocks'] ?? []) as $bi => $bl) {
+                if (($bl['type'] ?? '') !== 'portfolio') {
+                    continue;
+                }
+                $itens = (array) ($bl['data']['items'] ?? []);
+                $tem = array_map(fn ($i) => mb_strtolower(trim((string) ($i['name'] ?? ''))), $itens);
+                $quais = $porPagina[$pid] ?? null;
+                $add = array_values(array_filter($novos, fn ($n) => !in_array(mb_strtolower($n['name']), $tem, true) && ($quais === null || in_array($n['name'], $quais, true))));
+                if ($add) {
+                    $c['pages'][$pid]['blocks'][$bi]['data']['items'] = array_merge($add, $itens);
+                    $mudou = true;
+                }
+            }
+        }
+        if ($mudou && !cms_save_content($c, 'Portfólio: projetos novos')) {
+            return; // tenta de novo na próxima visita
+        }
+    }
+    $done[$key] = date('c');
+    cms_write_json($mark, $done);
+}, 1);
+

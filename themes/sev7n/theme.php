@@ -22,10 +22,7 @@ $linkHelp = 'Use /pagina, #secao ou https://… Para o WhatsApp: "wa" (mensagem 
 $bg   = ['type' => 'select', 'label' => 'Fundo', 'options' => ['noite' => 'Escuro', 'grafite' => 'Escuro (mais claro)', 'papel' => 'Claro'], 'default' => 'noite'];
 $icon = ['type' => 'select', 'label' => 'Ícone', 'options' => ['' => 'Sem ícone'] + sv_icons(), 'default' => ''];
 
-$portfolio = [
-    ['name' => 'Assertiva Contábil', 'category' => 'Site institucional', 'url' => 'https://assertivacontabil.com.br', 'image' => ['src' => $port . 'assertiva.webp', 'alt' => 'Site da Assertiva Contábil'], 'text' => 'Contabilidade consultiva no Rio com visual premium, uma página para cada serviço, troca de contador e reforma tributária.', 'tags' => 'Contabilidade, Sev7n Xpress'],
-    ['name' => 'Shelter Consultoria', 'category' => 'Site + blog com IA', 'url' => 'https://shelterconsultoria.com.br', 'image' => ['src' => $port . 'shelter-consultoria.webp', 'alt' => 'Site da Shelter Consultoria'], 'text' => 'Consultoria marítima e offshore com mais de 700 notícias importadas e artigos novos escritos com IA toda semana.', 'tags' => 'Marítimo, Blog com IA'],
-    ['name' => 'Ambiental Cupim', 'category' => 'Site com SEO local', 'url' => 'https://ambiental-cupim.com.br', 'image' => ['src' => $port . 'ambiental.webp', 'alt' => 'Site da Ambiental Cupim'], 'text' => 'Dedetização no Rio, Niterói e São Gonçalo, com serviços, segmentos atendidos e orçamento direto no WhatsApp.', 'tags' => 'Serviços, SEO local'],
+$portfolio = array_merge(sv_portfolio_novos(), [
     ['name' => 'Bestane Urologia', 'category' => 'Site institucional', 'url' => 'https://bestane-urologia.com.br', 'image' => ['src' => $port . 'bestane.webp', 'alt' => 'Site da Bestane Urologia'], 'text' => 'Clínica de urologia com equipe, exames, cirurgias e resultado de exames on-line.', 'tags' => 'Saúde, WordPress'],
     ['name' => 'BVI Leilões', 'category' => 'Site + sistema', 'url' => 'https://bvileiloes.com.br', 'image' => ['src' => $port . 'bvileiloes.webp', 'alt' => 'Site da BVI Leilões'], 'text' => 'Imobiliária de leilões da Caixa com catálogo de imóveis, área administrativa e assessoria on-line.', 'tags' => 'Imobiliária, Sistema'],
     ['name' => 'Jequitibá Investimentos', 'category' => 'Site institucional', 'url' => 'https://jequitibainvestimentos.com.br', 'image' => ['src' => $port . 'jequitiba.webp', 'alt' => 'Site da Jequitibá Investimentos'], 'text' => 'Investimentos em precatórios com design premium, vídeo e foco em captação de leads.', 'tags' => 'Finanças, Conversão'],
@@ -39,7 +36,7 @@ $portfolio = [
     ['name' => 'Jequitibá App', 'category' => 'Sistema web', 'url' => 'https://app.jequitibainvestimentos.com.br', 'image' => ['src' => $port . 'jequitiba-app.webp', 'alt' => 'Sistema Jequitibá App'], 'text' => 'Plataforma de investimentos com login seguro, painel do cliente e controle de precatórios.', 'tags' => 'Sistema, Fintech'],
     ['name' => 'Credtools', 'category' => 'Sistema web', 'url' => 'https://credtools.com.br', 'image' => ['src' => $port . 'credtools.webp', 'alt' => 'Sistema Credtools'], 'text' => 'Gestão de crédito com autenticação, painel administrativo e ferramentas de análise.', 'tags' => 'Sistema, Fintech'],
     ['name' => 'Shelter CRM', 'category' => 'Sistema web', 'url' => 'https://sapsheltermar.com.br', 'image' => ['src' => $port . 'shelter.webp', 'alt' => 'Sistema Shelter CRM'], 'text' => 'CRM com leads, financeiro, automação de marketing e plataforma de cursos integrada.', 'tags' => 'Sistema, CRM'],
-];
+]);
 
 $depoimentos = [
     ['name' => 'Italo Santos', 'company' => 'Cross Training Vila Madá', 'text' => 'O João junto com sua equipe conseguiu captar exatamente a ideia que tínhamos. Uma pegada mais leve e colorida. Estamos muito satisfeitos nessa parceria que já dura mais de 4 anos.'],
