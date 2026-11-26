@@ -36,7 +36,7 @@ return ['id' => 'criacao-sites-rj', 'title' => 'Criação de sites no Rio de Jan
         'eyebrow' => 'Alguns projetos no Rio',
         'title' => 'Sites que fizemos para empresas cariocas',
         'text' => '',
-        'items' => array_values(array_filter($portfolio, fn ($p) => in_array($p['name'], ['Ladislau Assessoria Contábil', 'Reboque Ferreira 24h', 'Bestane Urologia', 'BVI Leilões', 'Jequitibá Investimentos', 'Sheltermar'], true))),
+        'items' => array_values(array_filter($portfolio, fn ($p) => in_array($p['name'], ['Assertiva Contábil', 'Ambiental Cupim', 'Ladislau Assessoria Contábil', 'Reboque Ferreira 24h', 'Bestane Urologia', 'Sheltermar'], true))),
         'visible' => 6,
         'background' => 'grafite',
     ]],
