@@ -2,8 +2,8 @@
 /** Página inicial — Autor: João Costa */
 if (!defined('CMS_ROOT')) { exit; }
 return ['id' => 'home', 'title' => 'Página inicial', 'home' => true, 'seo' => [
-    'title' => 'Criação de Sites Profissionais no Rio de Janeiro | Agência Sev7n',
-    'description' => 'Sites, lojas virtuais e sistemas sob medida no Rio de Janeiro, feitos para aparecer no Google e transformar visitas em clientes. Analise seu site grátis.',
+    'title' => 'Criação de Sites no Rio de Janeiro | Agência Sev7n',
+    'description' => 'Criação de sites no Rio de Janeiro: sites, lojas virtuais e sistemas sob medida, feitos para aparecer no Google e trazer clientes. Analise seu site grátis.',
 ], 'blocks' => [
     ['type' => 'hero', 'anchor' => 'inicio', 'data' => [
         'text' => 'Criamos sites, lojas virtuais e sistemas sob medida para empresas e profissionais que querem ser encontrados no Google, no Maps e nas buscas por IA — e receber mais pedidos de orçamento.',

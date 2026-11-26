@@ -96,13 +96,13 @@ return [
         ],
     ],
 
-    // Cores da marca no aviso de cookies e no painel (laranja da marca, texto escuro no botão (como no site))
+    // Cores da marca no aviso de cookies e no painel (laranja da marca, com texto escuro no botão, como no site)
     'brand' => ['accent' => '#F2611D', 'dark' => '#0B0D13', 'ink' => '#160B03'],
 
     'seo_defaults' => [
-        'title'       => 'Criação de Sites Profissionais no Rio de Janeiro | Agência Sev7n',
-        'description' => 'Sites, lojas virtuais e sistemas sob medida no Rio de Janeiro, feitos para aparecer no Google e transformar visitas em clientes. Analise seu site grátis.',
-        'focus_keyword' => 'criação de sites rio de janeiro',
+        'title'       => 'Criação de Sites no Rio de Janeiro | Agência Sev7n',
+        'description' => 'Criação de sites no Rio de Janeiro: sites, lojas virtuais e sistemas sob medida, feitos para aparecer no Google e trazer clientes. Analise seu site grátis.',
+        'focus_keyword' => 'criação de sites no rio de janeiro',
         'og_image'    => ['src' => $img . 'og-image.jpg', 'alt' => 'Agência Sev7n — criação de sites no Rio de Janeiro'],
         'favicon'     => ['src' => $img . 'favicon.png', 'alt' => ''],
         'theme_color' => '#0B0D13',
@@ -148,7 +148,7 @@ return [
                 'tool_points' => ['type' => 'textarea', 'label' => 'O que o analisador confere (um por linha)', 'rows' => 4, 'default' => "Velocidade real medida pelo Google\nSe o ChatGPT consegue ler o site\nErros que tiram você do Google"],
                 'facts' => ['type' => 'textarea', 'label' => 'Faixa de números', 'rows' => 3, 'default' => "7+ | anos criando sites\n200+ | projetos entregues\nRJ + BR | presencial no Rio, remoto no Brasil", 'help' => 'Uma linha por item: número | texto.'],
                 'video' => ['type' => 'toggle', 'label' => 'Vídeo de fundo (só no computador)', 'default' => true],
-                'image' => ['type' => 'image', 'label' => 'Imagem de fundo', 'default' => ['src' => $img . 'hero-poster.webp', 'alt' => '']],
+                'image' => ['type' => 'image', 'label' => 'Imagem de fundo', 'decorative' => true, 'help' => 'Imagem decorativa: não precisa de texto alternativo.', 'default' => ['src' => $img . 'hero-poster.webp', 'alt' => '']],
             ],
         ],
         'servicos' => [
